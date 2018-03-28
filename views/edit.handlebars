@@ -1,31 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Pokemon</title>
-</head>
-<body>
-  <h4>Editing: {{pokemon.name}}</h4>
-  <form class="pokemon-form" method="POST" action="/{{pokemon.id}}?_method=PUT">
-    <div class="pokemon-attribute">
-      id:<input name="id" type="text" value="{{pokemon.id}}"/>
-    </div>
-    <div class="pokemon-attribute">
-      num:<input name="num" type="text" value="{{pokemon.num}}"/>
-    </div>
-    <div class="pokemon-attribute">
-      name:<input name="name" type="text" value="{{pokemon.name}}"/>
-    </div>
-    <div class="pokemon-attribute">
-      img:<input name="img" type="text" value="{{pokemon.img}}"/>
-    </div>
-    <div class="pokemon-attribute">
-      height:<input name="height" type="text" value="{{pokemon.height}}"/>
-    </div>
-    <div class="pokemon-attribute">
-      weight:<input name="weight" type="text" value="{{pokemon.weight}}"/>
-    </div>
-    <input name="submit" type="submit"/>
-  </form>
-</body>
-</html>
+<form action="/{{pokemon.id}}" method="post">
+  <label>ID:</label>
+  <input type="text" name="id" value={{pokemon.id}}>
+  {{!-- <label>Number:</label>
+  <input type="text" name="number" value={{pokemon.num}}> --}}
+  <label>Name:</label>
+  <input type="text" name="name" value={{pokemon.name}}>
+  <label>Image:</label>
+  <input type="text" name="img" value={{pokemon.img}}>
+  <label>Weight:</label>
+  <input type="text" name="weight" value={{pokemon.weight}}>
+  <label>Height:</label>
+  <input type="text" name="height" value={{pokemon.height}}>
+  <label>Candy:</label>
+  <input type="text" name="candy" value={{pokemon.candy}}>
+  <label>Candy Count:</label>
+  <input type="number" name="candy_count" value={{pokemon.candy_count}}>
+  <label>Egg:</label>
+  <input type="text" name="egg" value={{pokemon.egg}}>
+  <label>Average Spawns:</label>
+  <input type="number" name="avg_spawns" step="0.01" min="0" value={{pokemon.avg_spawns}}>
+  <label>Spawn Time:</label>
+  <input type="text" name="spawn_time" value={{pokemon.spawn_time}}>
+  <input type="submit" value="Submit">
+</form>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Pokedex Express Post</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+</head>
+
+<body>
+  <div id="pokedex-section">
+    <h1 id="header">Welcome to the Pokedex Express</h1>
+    <nav>
+      <a class="option" href="/?sortby=name">Sort By Name</a>
+      <a class="option" href="/">Sort By ID</a>
+      <a class="option" href="/new">New Entry</a>
+      <a class="option" href="/user/login">Sign In</a>
+      <a class="option" href="/user/logout">Log Out</a>
+    </nav>
+    <div id="searchBar">
+      <label>Pokemon Search:</label>
+      <input id="inputBar" type="text" value="" placeholder="Pikachu">
+    </div>
+    {{{body}}}
+  </div>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      let inputBar = document.getElementById('inputBar');
+      let outputBar = document.getElementById('outputBar');
+      inputBar.addEventListener('input', () => {
+        let pokeArr = document.getElementsByClassName('pokeName');
+        // toggle display none for all divs first
+        Array.from(pokeArr).forEach(detailsDiv => {
+          detailsDiv.parentNode.parentNode.style.display = 'none';
+        });
+        let searchInput = inputBar.value.toLowerCase();
+        // toggle display block for results
+        Array.from(pokeArr).filter(poke => {
+          return poke.innerText.toLowerCase().includes(searchInput);
+        }).forEach(detailsDiv => {
+          detailsDiv.parentNode.parentNode.style.display = 'block';
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

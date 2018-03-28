@@ -1,0 +1,15 @@
+<form action="/user/login" method="post">
+  <label>Username/email:</label>
+  <input type="text" value="" name="username">
+  <label>Password:</label>
+  <input type="text" value="" name="password">
+  <input type="submit" value="Login"> {{#if msg}}
+  <p>{{msg}}</p>
+  {{else}}
+  <p></p>
+  {{/if}}
+  <div>
+    <p>Not a user?</p>
+    <a href="/user/new">Sign up!</a>
+  </div>
+</form>
